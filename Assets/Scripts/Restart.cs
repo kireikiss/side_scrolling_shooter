@@ -16,6 +16,7 @@ public class Restart : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
+            //llama al reset de player para que se eliminen los efectos de powerup  y se desactiven
             Controller_Player.reset = true;
             Controller_Player._Player.gameObject.SetActive(true);
             Time.timeScale = 1;

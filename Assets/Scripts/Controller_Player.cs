@@ -154,11 +154,8 @@ public class Controller_Player : MonoBehaviour
             }
             else if(powerUpCount == 2)
             {
-                if (!missiles)
-                {
-                    missiles = true;
-                    powerUpCount = 0;
-                }
+                Controller_Hud.ActivatePointMultiplierPowerUp();
+                powerUpCount = 0;
             }
             else if (powerUpCount == 3)
             {
@@ -180,10 +177,19 @@ public class Controller_Player : MonoBehaviour
             {
                 OptionListing();
             }
-            else if (powerUpCount >= 6)
+            else if (powerUpCount == 6)
             {
                 forceField = true;
                 powerUpCount = 0;
+            }
+            else if (powerUpCount >= 7)
+            {
+                if (!missiles)
+                {
+                    missiles = true;
+                    powerUpCount = 0;
+                }
+               
             }
         }
     }
@@ -260,6 +266,7 @@ public class Controller_Player : MonoBehaviour
        
     }
 
+    //esot se llama en el script de reset para que no se mantengan los powerups al reiniciar
    public void restart()
     {
         if (reset)

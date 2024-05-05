@@ -10,7 +10,7 @@ public class Controller_Hud : MonoBehaviour
     public static bool gameOver;
 
     public static int points;
-
+    private static int pointMultiplier = 1;
     public Text pointsText;
 
     public Text powerUpText;
@@ -45,7 +45,7 @@ public class Controller_Hud : MonoBehaviour
             }
             else if (player.powerUpCount == 2)
             {
-                powerUpText.text = "PowerUp: Missile";
+                powerUpText.text = "PowerUp: Point Multiplier";
             }
             else if (player.powerUpCount == 3)
             {
@@ -59,11 +59,28 @@ public class Controller_Hud : MonoBehaviour
             {
                 powerUpText.text = "PowerUp: Option";
             }
-            else if (player.powerUpCount >= 6)
+            else if (player.powerUpCount == 6)
             {
                 powerUpText.text = "PowerUp: Shield";
             }
+            else if (player.powerUpCount >= 7)
+            {
+                powerUpText.text = "PowerUp: Missile";
+               
+            }
         }
         pointsText.text = "Score: " + points.ToString();
+    }
+
+    public static void AddPoints(int pointsToAdd)
+    {
+        //a puntos se le suma la multiplicacion de los puntos que se añaden por el multiplicador, el cual cambiará cuando se use su  powup
+        points += pointsToAdd * pointMultiplier;
+    }
+    public static void ActivatePointMultiplierPowerUp()
+    {
+       
+        pointMultiplier = 2;
+      
     }
 }

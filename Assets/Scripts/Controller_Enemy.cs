@@ -55,13 +55,13 @@ public class Controller_Enemy : MonoBehaviour
             GeneratePowerUp();
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
-            Controller_Hud.points++;
+            Controller_Hud.AddPoints(1);
         }
         if (collision.gameObject.CompareTag("Laser"))
         {
             GeneratePowerUp();
             Destroy(this.gameObject);
-            Controller_Hud.points++;
+            Controller_Hud.AddPoints(1);
         }
     }
 

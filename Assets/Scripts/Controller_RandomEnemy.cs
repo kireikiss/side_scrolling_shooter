@@ -24,7 +24,7 @@ public class Controller_RandomEnemy : Controller_Enemy
     {
         if (!isTeleporting)
         {
-            // Move towards the left
+            //para q se mueva a la izq
             Vector3 newPosition = Vector3.MoveTowards(transform.position, targetPosition, enemySpeed * Time.deltaTime);
             rb.MovePosition(newPosition);
 
@@ -36,7 +36,7 @@ public class Controller_RandomEnemy : Controller_Enemy
     {
         while (true)
         {
-            // Teleport after a delay
+           //espera un tiempo antes de tepearse
             yield return new WaitForSeconds(teleportDelay);
             Teleport();
         }
@@ -44,24 +44,24 @@ public class Controller_RandomEnemy : Controller_Enemy
 
     void Teleport()
     {
-        // Set teleporting flag to prevent movement during teleportation
+       
         isTeleporting = true;
 
-        // Teleport to a random Y position
+        // se tepea a una posicion aleatoria entre los límites q establecí
         float randomY = Random.Range(teleportymin, teleportymax);
         Vector3 newPosition = new Vector3(transform.position.x, randomY, transform.position.z);
         rb.MovePosition(newPosition);
 
-        // Reset target position for movement
+        
         targetPosition = transform.position + Vector3.left * enemySpeed;
 
-        // Reset teleporting flag after a delay
+        
         StartCoroutine(ResetTeleportFlag());
     }
 
     IEnumerator ResetTeleportFlag()
     {
-        // Wait for a short duration before resetting teleporting flag
+        
         yield return new WaitForSeconds(0.1f);
         isTeleporting = false;
     }
