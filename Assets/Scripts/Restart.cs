@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Restart : MonoBehaviour
 {
-    
+
     void Update()
     {
         GetInput();
@@ -19,6 +19,7 @@ public class Restart : MonoBehaviour
             Controller_Player._Player.gameObject.SetActive(true);
             Time.timeScale = 1;
             SceneManager.LoadScene(0);
+            Controller_Hud.gameOver = false;
         }
     }
 }

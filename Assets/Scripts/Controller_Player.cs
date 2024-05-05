@@ -35,6 +35,9 @@ public class Controller_Player : MonoBehaviour
     private List<Controller_Option> options;
     
     public static Controller_Player _Player;
+
+    public float minX= -43.3965f;
+    public float maxX = 43.3965f;
     
     private void Awake()
     {
@@ -218,16 +221,20 @@ public class Controller_Player : MonoBehaviour
     {
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(speed* inputX,speed * inputY);
+        Vector3 movement = new Vector3(speed * inputX, speed * inputY);
         rb.velocity = movement;
+      
         if (Input.GetKey(KeyCode.W))
         {
             lastKeyUp = true;
-        }else
+        }
+        else
         if (Input.GetKey(KeyCode.S))
         {
             lastKeyUp = false;
         }
+
+      
     }
 
     public virtual void OnCollisionEnter(Collision collision)
