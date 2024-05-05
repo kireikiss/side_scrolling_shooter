@@ -37,9 +37,8 @@ public class Controller_Player : MonoBehaviour
     
     public static Controller_Player _Player;
 
-    public float minX= -43.3965f;
-    public float maxX = 43.3965f;
-    
+   
+
     private void Awake()
     {
         if (_Player == null)
@@ -224,7 +223,7 @@ public class Controller_Player : MonoBehaviour
         float inputY = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(speed * inputX, speed * inputY);
         rb.velocity = movement;
-      
+
         if (Input.GetKey(KeyCode.W))
         {
             lastKeyUp = true;
@@ -234,8 +233,6 @@ public class Controller_Player : MonoBehaviour
         {
             lastKeyUp = false;
         }
-
-      
     }
 
     public virtual void OnCollisionEnter(Collision collision)
@@ -276,6 +273,8 @@ public class Controller_Player : MonoBehaviour
             options.Clear();
         }
     }
+
+
 
 
 }

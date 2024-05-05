@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour
 {
 
     //variables para especificar los límites en los ejes X Y
-    public float xLimit = 30;
+    public float xLimit = 50;
     public float yLimit = 20;
     
     virtual public void Update()

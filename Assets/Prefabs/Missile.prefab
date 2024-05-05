@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86e60bf02b38b1438d4ea2e7dd28c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xLimit: 30
+  xLimit: 50
   yLimit: 20
   normalForce: {x: 0, y: -10, z: 0}
   collidingForce: {x: 10, y: -1, z: 0}
