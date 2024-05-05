@@ -15,7 +15,7 @@ public class Controller_Player : MonoBehaviour
     public GameObject laserProjectile;
     public GameObject option;
     public int powerUpCount=0;
-
+    public static bool reset = false;
     internal bool doubleShoot;
     internal bool missiles;
     internal float missileCount;
@@ -23,6 +23,7 @@ public class Controller_Player : MonoBehaviour
     internal bool forceField;
     internal bool laserOn;
 
+  
     public static bool lastKeyUp;
 
     public delegate void Shooting();
@@ -259,5 +260,22 @@ public class Controller_Player : MonoBehaviour
             Destroy(collision.gameObject);
             powerUpCount++;
         }
+       
     }
+
+   public void restart()
+    {
+        if (reset)
+        {
+            speed = 15;
+            powerUpCount = 0;
+            doubleShoot = false;
+            missiles = false;
+            laserOn = false;
+            forceField = false;
+            options.Clear();
+        }
+    }
+
+
 }
